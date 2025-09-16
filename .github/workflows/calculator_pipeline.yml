@@ -28,7 +28,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Pipeline-update
         run: |
-          docker login -u DevOpsToken -p aK17fIj/Bvc57HBJRFlD9rkcU3Un4OaKx7vE3CIDwI+ACRDSd20S judevops.azurecr.io,
+          # docker login -u DevOpsToken -p aK17fIj/Bvc57HBJRFlD9rkcU3Un4OaKx7vE3CIDwI+ACRDSd20S judevops.azurecr.io,
           docker build -t ana-gheorghiu-calculator ,
           docker tag ana-gheorghiu-calculator  judevops.azurecr.io/ana-gheorghiu-calculator 
           docker push judevops.azurecr.io/ana-gheorghiu-calculator 
