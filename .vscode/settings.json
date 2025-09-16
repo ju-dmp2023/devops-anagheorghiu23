@@ -1,0 +1,5 @@
+{
+  "python.testing.pytestArgs": ["assignment_1_calculator"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
+}
