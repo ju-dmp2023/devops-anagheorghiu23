@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Login-Docker
-        run: docker login -u DevOpsToken -p ${{ secrets.DOCKER_PASSWORD_REGISTRY }} judevops.azurecr.io, 
+        run: docker login -u DevOpsToken -p ${{ secrets.DOCKER_PASSWORD_REGISTRY }} judevops.azurecr.io 
 
        # - name: Login-Docker
        #  run: docker login -u DevOpsToken -p ${{ secrets.DOCKER_PASSWORD_REGISTRY }} judevops.azurecr.io, 
