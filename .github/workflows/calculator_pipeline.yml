@@ -25,31 +25,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Login-Docker
-        run: docker login -u DevOpsToken -p ${{ secrets.DOCKER_PASSWORD_REGISTRY }} judevops.azurecr.io 
-      - name: Build-Docker
-        run:   docker build -t ana-gheorghiu-calculator assignment_1_calculator
-      - name: -Docker-registry
-        run:   docker tag ana-gheorghiu-calculator  judevops.azurecr.io/ana-gheorghiu-calculator 
-      - name: -Docker-push
-        run:  docker push judevops.azurecr.io/ana-gheorghiu-calculator 
-      - name: -Docker-logout
-        run:  docker logout
-       # - name: Login-Docker
-       #  run: docker login -u DevOpsToken -p ${{ secrets.DOCKER_PASSWORD_REGISTRY }} judevops.azurecr.io, 
+      # Use the Docker Login action
+      - name: Login to Azure Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: judevops.azurecr.io
+          username: DevOpsToken
+          password: ${{ secrets.DOCKER_PASSWORD_REGISTRY }}
 
       # Runs a set of commands using the runners shell
-      # - name: Run a multi-line script
-      #   run: |
-      #     echo Add other actions to build,
-      #     echo test, and deploy your project.
-          
-      # Runs a set of commands using the runners shell
-      # -   name: Pipeline-update
-      #     run: |
-      #       
-      #       docker build -t ana-gheorghiu-calculator ,
-      #       docker tag ana-gheorghiu-calculator  judevops.azurecr.io/ana-gheorghiu-calculator ,
-      #       docker push judevops.azurecr.io/ana-gheorghiu-calculator 
-      #       docker logout 
+      -   name: Pipeline-update
+          run: |
+            docker build -t judevops.azurecr.io/ana-gheorghiu-calculator ./assignment_1_calculator/BE
+            docker push judevops.azurecr.io/ana-gheorghiu-calculator
