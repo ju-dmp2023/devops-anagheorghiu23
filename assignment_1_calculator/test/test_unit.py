@@ -1,41 +1,20 @@
 from BE.calculator_helper import CalculatorHelper
 from assertpy import assert_that
 import pytest
-    
-class TestCalculator():
-    # @classmethod
-    # def setup(cls):
-    #     calculator = CalculatorHelper()
+class Base():
+    def setup_method(self):
+        self.calculator = CalculatorHelper()
 
-
-    # @classmethod
-    # def teardown_class(cls):
-    #     calculator = CalculatorHelper()
-
-#Assert
-
-        @pytest.mark.parametrize("n,expected", [(1, 2), (0, 1), (-4,-3)])
-        def test_add(self, n, expected):
-         assert n + 1 == expected
-        @pytest.mark.parametrize("n,expected", [(2, 1), (1, 0), (-3,-4)])
-        def test_subtract(self, n, expected):
-         assert n - 1 == expected
-        @pytest.mark.parametrize("n,expected", [(2, 4), (0, 0), (-2,-4)])
-        def test_multiply(self, n, expected):
-         assert n * 2 == expected
-        @pytest.mark.parametrize("n,expected", [(2, -4), (0, 0), (-2,4)])
-        def test_multiply_negative(self, n, expected):
-         assert n * -2 == expected
-        @pytest.mark.parametrize("n,expected", [(4, 2), (0, 0), (-2,-1)])
-        def test_divide(self, n, expected):
-         assert n / 2 == expected
-  
-    # def test_add(self):
-    #     calculator = CalculatorHelper()
-    #     value = calculator.add(1,-1)
-    #     assert_that(value).is_equal_to(0)
-
-    # def test_subtract(self):
-    #     calculator = CalculatorHelper()
-    #     value = calculator.subtract(1,1)
-    #     assert_that(value).is_equal_to(0)
+class TestCalculator(Base):
+        @pytest.mark.parametrize("n1, n2, result", [(1, 1 ,2), (0, 1,1), (-4,-3,-7)])
+        def test_add(self, n1, n2, result):
+            assert self.calculator.add(n1, n2) == result
+        @pytest.mark.parametrize("n1, n2, result", [(2, 1,1), (1,0,1), (-3,-4,1)])
+        def test_subtract(self, n1, n2, result):
+         assert self.calculator.subtract(n1, n2) == result
+        @pytest.mark.parametrize("n1, n2, result", [(2, 4,8), (0,0,0), (-2,-4,8)])
+        def test_multiply(self, n1, n2, result):
+         assert self.calculator.multiply(n1, n2) == result
+        @pytest.mark.parametrize("n1, n2, result", [(4, 2,2), (2,2,1), (-2,-1,2)])
+        def test_divide(self, n1, n2, result):
+         assert self.calculator.divide(n1, n2) == result
