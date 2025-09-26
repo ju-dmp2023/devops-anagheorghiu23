@@ -33,4 +33,4 @@ class TestCalculatorAPI():
         client = Client(base_url="http://localhost:5001")
         response=calculate.sync(client=client,body=Calculation(Opertions.SUBTRACT,operand1 = 10,operand2 = 2))
         assert isinstance (response, ResultResponse)
-        assert response.result == 10
+        assert response.result == 8
