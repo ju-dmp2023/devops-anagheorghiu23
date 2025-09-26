@@ -40,11 +40,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip install requests 
+    
+      - name: Set PythonPath
+        env: 
+           PYTHONPATH:${{ github.workspace }}/assignment_1_calculator
+         
           
    # Runs the pytest
       -   name: Testing the code - unit and api
           run: |
-            PYTHONPATH: ${{ github.workspace }}/assignment_1_calculator
             python calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml.
