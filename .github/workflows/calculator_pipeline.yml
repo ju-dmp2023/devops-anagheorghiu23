@@ -44,6 +44,7 @@ jobs:
    # Runs the pytest
       -   name: Testing the code - unit and api
           run: |
+            PYTHONPATH: ${{ github.workspace }}/assignment_1_calculator
             python calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml.
