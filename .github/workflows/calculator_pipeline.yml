@@ -44,7 +44,6 @@ jobs:
    # Runs the pytest
       -   name: Testing the code - unit and api
           run: |
-            EXPORT export PYTHONPATH=.
             python BE/calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml.
