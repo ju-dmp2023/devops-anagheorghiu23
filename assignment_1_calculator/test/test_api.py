@@ -7,11 +7,6 @@ from calculator_client_generated.calculator_client.api.actions import calculate
 from calculator_client_generated.calculator_client.models.opertions import Opertions
 from calculator_client_generated.calculator_client.models import ResultResponse
 import pytest
-
-
-# @pytest.fixture
-# def client():
-#      return Client(base_url="http://localhost:5001")
     
 
 class TestCalculatorAPI():
