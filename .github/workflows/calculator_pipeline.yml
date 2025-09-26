@@ -44,7 +44,7 @@ jobs:
    # Runs the pytest
       -   name: Testing the code - unit and api
           run: |
-            python BE/calculator.py --rest &
+            python calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml.
             pkill -f 'calculator.py --rest'
