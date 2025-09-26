@@ -48,7 +48,7 @@ jobs:
       -   name: Testing the code - unit and api
           run: |
             echo %PYTHONPATH%
-            python calculator.py --rest &
+            python assignment_1_calculator/calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml.
             pkill -f 'calculator.py --rest'
