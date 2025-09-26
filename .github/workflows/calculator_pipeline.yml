@@ -40,7 +40,8 @@ jobs:
           python -m pip install --upgrade pip
            pip install -r assignment_1_calculator/BE/requirements.txt
           pip install pytest
-          pip install requests 
+          pip install requests
+          pip install assertpy
 
       - name: updating PYTHONPATH
         run: echo "PYTHONPATH=assignment_1_calculator" >> $GITHUB_ENV
