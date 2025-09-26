@@ -44,10 +44,11 @@ jobs:
    # Runs the pytest
       -   name: Testing the code - unit and api
           run: |
+            EXPORT export PYTHONPATH=.
             python BE/calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml.
-            pkill -f 'BE/calculator.py --rest'
+            pkill -f 'calculator.py --rest'
 
       # Runs a set of commands using the runners shell
       -   name: Pipeline-update
