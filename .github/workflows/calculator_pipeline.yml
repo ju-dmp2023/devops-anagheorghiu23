@@ -42,6 +42,7 @@ jobs:
           pip install pytest
           pip install requests
           pip install assertpy
+          pip install httpx
 
       - name: updating PYTHONPATH
         run: echo "PYTHONPATH=assignment_1_calculator" >> $GITHUB_ENV
