@@ -52,7 +52,7 @@ jobs:
    # Runs the pytest
       -   name: Testing the code - unit and api
           run: |
-            echo %PYTHONPATH%
+            echo $PYTHONPATH
             docker compose -p webcalculator up -d
             pytest
             pytest --junit-xml=report.xml
