@@ -53,7 +53,7 @@ jobs:
       -   name: Testing the code - unit and api
           run: |
             echo $PYTHONPATH
-            docker compose -p webcalculator up -d -f assignment_1_calculator/docker-compose.yml
+            docker compose -p webcalculator -f assignment_1_calculator/docker-compose.yml up -d
             pytest
             pytest --junit-xml=report.xml
       -   name: Publish Test Report
