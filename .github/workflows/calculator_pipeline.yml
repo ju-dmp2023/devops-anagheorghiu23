@@ -53,12 +53,11 @@ jobs:
             echo %PYTHONPATH%
             python assignment_1_calculator/BE/calculator.py --rest &
             pytest
-            pytest --junit-xml=report.xml.
-            pkill -f 'calculator.py --rest'
-      # -   name: Publish Test Report
-      #     uses: mikepenz/action-junit-report@v5
-      #     with:
-      #           report_paths: '**/build/test-results/test/TEST-*.xml'
+            pytest --junit-xml=report.xml
+      -   name: Publish Test Report
+          uses: mikepenz/action-junit-report@v5
+          with:
+                report_paths: 'report.xml'
       # -   name: Killing the server
       #     run: |
       #       echo %PYTHONPATH%
