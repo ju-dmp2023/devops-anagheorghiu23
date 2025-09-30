@@ -54,7 +54,6 @@ jobs:
           run: |
             echo %PYTHONPATH%
             docker compose -p webcalculator up -d
-            python assignment_1_calculator/BE/calculator.py --rest &
             pytest
             pytest --junit-xml=report.xml
       -   name: Publish Test Report
