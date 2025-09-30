@@ -1,6 +1,5 @@
 import requests
 from calculator_client_generated.calculator_client import Client
-
 from calculator_client_generated.calculator_client.api.actions.calculate import sync
 from calculator_client_generated.calculator_client.models.calculation import Calculation
 from calculator_client_generated.calculator_client.api.actions import calculate
