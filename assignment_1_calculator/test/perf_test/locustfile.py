@@ -1,4 +1,4 @@
-from locust import HttpUser, task, between, tag
+from locust import HttpUser, task, between
 import json
 import random
 
